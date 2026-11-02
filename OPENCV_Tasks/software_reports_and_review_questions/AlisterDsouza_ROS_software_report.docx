@@ -1,0 +1,73 @@
+                                            ROS 2- JAZZY # type: ignore
+Name: Alister D. Dsouza # type: ignore                                      Date:  02-11-2026
+
+What’s ROS 2- Jazzy? # type: ignore 
+•	ROS 2 Jazzy Jalisco is a long-term support (LTS) distribution of the Robot Operating System 2. It was released by Open Robotics in May 2024 and is supported until May 2029. A ROS 2 distribution is a tested set of ROS client libraries, command-line tools, middleware integrations, build tools, and packages released together under a fixed name and version policy.# type: ignore 
+•	Jazzy is the first ROS 2 LTS distribution targeting Ubuntu 24.04 LTS (Noble Numbat). Its platform support policy, including supported architectures and operating systems, is defined in REP 2000. # type: ignore 
+
+Where & How ROS 2 – Jazzy? # type: ignore  
+This answers queries about the installation and access of this middle-ware. # type: ignore 
+
+• A computer or virtual machine running Ubuntu 24.04 is needed to proceed. # type: ignore 
+Terminal command procedure: # type: ignore 
+•	 locale # type: ignore 
+•	 sudo apt update && sudo apt install locales. # type: ignore 
+•	sudo locale-gen en_US en_US.UTF-8 # type: ignore 
+•	sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 # type: ignore 
+•	export LANG=en_US.UTF-8 # type: ignore 
+•	verify: locale # type: ignore 
+to enable the required repositories: # type: ignore 
+•	sudo apt install software-properties-common # type: ignore 
+•	sudo add-apt-repository universe # type: ignore 
+       adding the ROS 2 GPG key with apt: # type: ignore 
+•	sudo apt update && sudo apt install curl -y # type: ignore 
+•	sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg # type: ignore 
+Adding the repository to the sources list: # type: ignore 
+•	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null # type: ignore 
+•	sudo apt update && sudo apt install ros-dev-tools # type: ignore 
+•	sudo apt upgrade -y # type: ignore 
+•	sudo apt install ros-jazzy-desktop # type: ignore 
+Why use a ROS-2 Jazzy? # type: ignore 
+•	It is a very helpful tool, especially when documentation is limited in distinction between Humble and Jazzy. It's also good at catching syntax errors.' # type: ignore 
+•	Long term support window as a 5 year release as  it provides a stable foundation for production systems and research projects without needing a disruptive version upgrade every year. # type: ignore  
+•	Simulates your system before deploying to real hardware & as well as access a rich ecosystem of pre-built packages for navigation, manipulation, vision etc: . # type: ignore 
+When use a ROS – 2 Jazzy? # type: ignore 
+•	Primarily when an individual need a long term support release with modern platform support , active updates till a definite time period. # type: ignore 
+•	Whenever a system needs ubuntu 24.04  environment then ROS 2 Jazzy compatibility will come in handy. # type: ignore 
+•	Can be used for physics-based robot simulations as its well suited to Gazebo Harmonic & Gazebo Ionic.# type: ignore 
+
+Sources: # type: ignore 
+•	https://medium.com/@joanouma48/introduction-to-ros-2-jazzy-a-beginners-guide-7dc0dd6ee650 # type: ignore 
+•	https://www.reddit.com/r/ROS/comments/1ilhwew/the_drastic_difference_in_syntax_between_ros2/#:~:text=It%20is%20a%20very%20helpful,good%20at%20catching%20syntax%20errors # type: ignore 
+•	https://automaticaddison.com/how-to-install-ros-2-jazzy/ # type: ignore 
+•	https://fictionlab.pl/glossary/ros-2-jazzy/ # type: ignore 
+•	https://www.digikey.com/en/maker/tutorials/2025/intro-to-ros-part-1-what-is-the-robot-operating-system-ros # type: ignore 
+
+Difference between ROS & ROS-2? # type: ignore 
+•	The core of ROS 1 is targeting C++03 and doesn’t make use of C++11 features in its API. ROS 2 uses C++11 extensively and uses some parts from C++14. # type: ignore 
+•	ROS 1 is targeting Python 2. ROS 2 requires at least Python version 3.5. # type: ignore 
+•	ROS 1 uses a custom serialization format, a custom transport protocol as well as a custom central discovery mechanism while  ROS 2 has an abstract middleware interface, through which serialization, transport, and discovery is being provided. # type: ignore 
+•	In ROS 1 a package with Python code can only use a small subset of the features available in setup.py files since the setup.py file is being processed by custom logic from within CMake. In ROS 2 a Python package can use anything in setup.py files, e.g. entry points.# type: ignore 
+•	In ROS 1 multiple packages can be built in a single CMake context. While this speeds up the build step, every package needs to ensure that cross package target dependencies are defined correctly. Additionally all packages share the same namespace which leads to colliding target names and many more whereas in ROS 2 only isolated builds are supported, i.e. every package is built separately on its own. The install spaces can be either isolated or merged. # type: ignore 
+•	In ROS 1 it is not possible to create more than one node in a process. This is due to the API itself but also because of internal implementation decisions. In ROS 2 it is possible to create multiple nodes in a process.# type: ignore 
+•	In ROS 1 roslaunch files are defined in XML with very limited capabilities. In ROS 2 launch file are written in Python which enables to use more complex logic like conditionals etc.# type: ignore 
+Difference between ROS JAZZY & ROS HUMBLE:# type: ignore 
+•	ROS Humble is compatible and stable with Ubuntu version 22.04 Jammy while ROS Jazzy uses Ubuntu version 24.04 Noble. # type: ignore 
+•	ROS Humble is of release type LTS (older) while ROS Jazzy is of release type(LTS (current). # type: ignore 
+•	ROS Humble’s Support window phases out while ROS Jazzy’s support window is supported until 2029. # type: ignore 
+•	Humble has a legacy strong ecosystem maturity as it has most of it’s packages ported while Jazzy’s ecosystem maturity is high and growing but some packages still catching up. # type: ignore 
+
+Everything in ROS:
+•	It is not a full operating system like Windows or Linux. Instead, it acts as middleware: a software layer that sits between the robot's operating system and the applications that control it. It helps developers to break down their code into modular, reusable components called nodes, manage communication between those components, and simulate or debug their systems in real time.
+•	Communication tools: Topics which is a  publisher-subscriber model for continuous data (e.g., sensor streams) & Services which is  request-response model for one-time actions (e.g., turning on a light)
+•	These nodes, and the data they send, are defined using interfaces, which enforce strict typing so that messages are reliable and consistent.
+•	Most of the time, ROS runs on a full computer, like a Raspberry Pi, which handles heavy tasks like image processing and navigation. 
+•	ROS integrates seamlessly with simulation tools such as Gazebo, allowing complete robotic systems to be tested before deploying them on real hardware.
+•	Service is defined by a pair of messages: one for the request and one for the reply. A providing ROS node offers a service under a string name, and a client calls the service by sending the request message and awaiting the reply. Client libraries usually present this interaction to the programmer as if it were a remote procedure call. Services have an associated service type that is the package resource name of the .srv file. As with other ROS filesystem-based types, the service type is the package name + the name of the .srv file.
+•	Topics are named buses over which nodes exchange messages. Topics have anonymous publish/subscribe semantics, which decouples the production of information from its consumption. In general, nodes are not aware of who they are communicating with. Instead, nodes that are interested in data subscribe to the relevant topic; nodes that generate data publish to the relevant topic. There can be multiple publishers and subscribers to a topic.
+
+Limitations of ROS:
+•	Steep learning curve for beginners.
+•	Performance overhead due to message passing.
+•	Tight coupling with the host OS (usually Ubuntu).
+•	Dependency hell when manually installing. # type: ignore 
